@@ -1,6 +1,7 @@
 Feature: More advanced elasticsearch tests
 
   Background:
+    * url baseUrl
     * def OwnerRepository = Java.type("net.jvw.OwnerRepository")
     * def repo = new OwnerRepository()
     * eval repo.init(karate.properties['elasticsearch.address'])
@@ -13,5 +14,7 @@ Feature: More advanced elasticsearch tests
     Then status 200
 
   Scenario: Verify find all
-    * def result = repo.findAll()
-    * match result == '#[180]'
+    Given path '/all'
+    When method GET
+    Then status 200
+    And match $ == '#[180]'

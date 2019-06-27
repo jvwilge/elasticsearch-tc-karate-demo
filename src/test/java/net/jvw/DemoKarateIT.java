@@ -22,6 +22,8 @@ class DemoKarateIT {
     String httpHostAddress = container.getHttpHostAddress();
     System.setProperty("elasticsearch.address", httpHostAddress);
     LOG.info("Elasticsearch container started: {}", httpHostAddress);
+
+    //TODO run vertx on random port
   }
 
   @AfterAll
