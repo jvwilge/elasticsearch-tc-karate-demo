@@ -35,6 +35,7 @@
     -->
     <failOnSnapshots>true</failOnSnapshots>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <vertx.version>3.7.1</vertx.version>
   </properties>
 
   <dependencies>
@@ -139,9 +140,14 @@
     </dependency>
 
     <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.9.9</version>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-web</artifactId>
+      <version>${vertx.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.vertx</groupId>
+      <artifactId>vertx-core</artifactId>
+      <version>${vertx.version}</version>
     </dependency>
 
   </dependencies>
