@@ -18,3 +18,9 @@ Feature: More advanced elasticsearch tests
     When method GET
     Then status 200
     And match $ == '#[180]'
+
+  Scenario: Verify Hans Gruber has a Peugeot
+    Given path '/gruber'
+    When method GET
+    Then status 200
+    And match $ contains any { 'firstName' : 'Hans', 'lastName' : 'Gruber', 'car' : 'Peugeot', 'id' : '#notnull' }

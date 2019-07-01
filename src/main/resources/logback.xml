@@ -9,7 +9,7 @@
   <logger name="net.jvw" level="DEBUG"/>
   <logger name="com.intuit" level="DEBUG"/>
 
-  <root level="INFO">
+  <root level="DEBUG">
     <appender-ref ref="STDOUT"/>
   </root>
 

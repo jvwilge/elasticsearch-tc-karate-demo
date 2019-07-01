@@ -10,6 +10,9 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Generate test data for elasticsearch bulk insert
+ */
 public class OwnerGeneratorUtil {
 
   private static final String[] FIRST_NAMES = new String[]{"John", "Jane", "Harry", "Harriet", "Luke", "Lucy",
@@ -17,7 +20,7 @@ public class OwnerGeneratorUtil {
       "James", "Shirley", "Denise", "Hans", "Holly"};
   private static final String[] LAST_NAMES = new String[]{"Doe", "Nak", "Wilson", "Fischer", "Becker", "Dubois",
       "Kowalski", "Popov", "Vega", "Winfield", "Virtanen", "Olsen", "Nielsen", "Gruber"};
-  private static final String[] CARS = new String[]{"Toyota", "Lexus", "BMW", "Peugoet", "Mini", "Citroen", "Seat", "Ferrari"};
+  private static final String[] CARS = new String[]{"Toyota", "Lexus", "BMW", "Peugeot", "Mini", "Citroen", "Seat", "Ferrari"};
 
   private static Set<String> names = new HashSet<>(); //to prevent duplicates
 

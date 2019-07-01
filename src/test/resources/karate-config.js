@@ -6,6 +6,8 @@
     if (!env) {
         env = 'local'; //no environment found, assuming local (laptop)
         karate.properties['elasticsearch.address'] = 'localhost:9200'
+    } else if (env === 'test') {
+        baseUrl = 'http://127.0.0.1:' + karate.properties['vertx.port'];
     }
 
     karate.log('karate.env property:', env);
