@@ -1,10 +1,13 @@
 package net.jvw;
 
-import com.intuit.karate.junit5.Karate;
+import com.intuit.karate.KarateOptions;
+import com.intuit.karate.Results;
+import com.intuit.karate.Runner;
 import io.vertx.core.Vertx;
 import io.vertx.junit5.VertxTestContext;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.elasticsearch.ElasticsearchContainer;
@@ -15,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@KarateOptions(tags = {"~@ignore"}, features = "classpath:karate")
 class DemoKarateIT {
 
   private static final Logger LOG = LoggerFactory.getLogger(DemoKarateIT.class);
@@ -56,11 +60,10 @@ class DemoKarateIT {
     }
   }
 
-  @Karate.Test
-  Karate testAll() {
-    return new Karate()
-        .feature("classpath:karate")
-        .tags("~@ignore");
+  @Test
+  void testParallel() {
+    Results results = Runner.parallel(getClass(), 2, "target/failsafe-reports");
+    assertThat(results.getFailCount() == 0).isTrue().withFailMessage(results.getErrorMessages());
   }
 
   private static Integer findRandomPort() throws IOException {
