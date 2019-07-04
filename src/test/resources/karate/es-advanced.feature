@@ -2,9 +2,6 @@ Feature: More advanced elasticsearch tests
 
   Background:
     * url baseUrl
-    * def OwnerRepository = Java.type("net.jvw.OwnerRepository")
-    * def repo = new OwnerRepository()
-    * eval repo.init(karate.properties['elasticsearch.address'])
     * callonce read('es-load-testdata.feature') { 'fileName' : 'test-owners.jsonl' }
 
   Scenario: Verify find all
@@ -13,7 +10,7 @@ Feature: More advanced elasticsearch tests
     Then status 200
     And match $ == '#[180]'
 
-  Scenario: Verify Hans Gruber drives a Peugeot
+  Scenario: Verify Hans Gruber drives a Peugeot (might return other Grubers)
     Given path '/gruber'
     When method GET
     Then status 200
