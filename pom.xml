@@ -29,13 +29,13 @@
     <pitest-junit5-plugin.version>0.8</pitest-junit5-plugin.version>
     <slf4j.version>1.7.26</slf4j.version>
     <testcontainers-elasticsearch.version>1.11.3</testcontainers-elasticsearch.version>
+    <vertx.version>3.7.1</vertx.version>
 
     <!--
     Other properties
     -->
     <failOnSnapshots>true</failOnSnapshots>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <vertx.version>3.7.1</vertx.version>
   </properties>
 
   <dependencies>
