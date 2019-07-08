@@ -29,7 +29,7 @@
     <pitest-maven.version>1.4.7</pitest-maven.version>
     <pitest-junit5-plugin.version>0.8</pitest-junit5-plugin.version>
     <slf4j.version>1.7.26</slf4j.version>
-    <testcontainers-elasticsearch.version>1.11.3</testcontainers-elasticsearch.version>
+    <testcontainers-elasticsearch.version>1.11.4</testcontainers-elasticsearch.version>
     <vertx.version>3.7.1</vertx.version>
 
     <!--
@@ -109,6 +109,18 @@
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpmime</artifactId> <!-- needed for Karate -->
       <version>${httpcomponents.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId> <!-- needed for Karate -->
+      <version>${httpcomponents.version}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
       <scope>test</scope>
     </dependency>
     <dependency>
