@@ -11,6 +11,8 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testcontainers.elasticsearch.ElasticsearchContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -18,24 +20,26 @@ import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@Testcontainers
 @KarateOptions(tags = {"~@ignore"}, features = "classpath:karate")
 class DemoKarateIT {
 
   private static final Logger LOG = LoggerFactory.getLogger(DemoKarateIT.class);
 
-  private static ElasticsearchContainer container;
+  private static final String url = "docker.elastic.co/elasticsearch/elasticsearch:" + AutoDetectElasticVersion.detectHighestVersion();
+
+  @Container
+  private static ElasticsearchContainer container= new ElasticsearchContainer(url);
 
   private static Vertx vertx;
 
   private static VertxTestContext testContext = new VertxTestContext();
 
+
   @BeforeAll
   static void beforeAll() throws IOException {
     System.setProperty("karate.env", "test");
 
-    String url = "docker.elastic.co/elasticsearch/elasticsearch:" + AutoDetectElasticVersion.detectHighestVersion();
-    container = new ElasticsearchContainer(url);
-    container.start();
     String elasticsearchAddress = container.getHttpHostAddress();
     System.setProperty("elasticsearch.address", elasticsearchAddress);
     LOG.info("Elasticsearch container started: {}", elasticsearchAddress);
@@ -51,7 +55,6 @@ class DemoKarateIT {
 
   @AfterAll
   static void afterAll() throws Throwable {
-    container.stop();
     vertx.close(testContext.completing());
 
     assertThat(testContext.awaitCompletion(2, TimeUnit.SECONDS)).isTrue();
