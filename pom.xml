@@ -12,25 +12,26 @@
   <name>Demo project with elasticsearch 7, Testcontainers and Karate</name>
 
   <properties>
-    <assertj.version>3.12.2</assertj.version>
+    <assertj.version>3.19.0</assertj.version>
     <dependency-check-maven.version>5.0.0-M3</dependency-check-maven.version>
-    <elasticsearch.version>7.2.0</elasticsearch.version>
-    <httpcomponents.version>4.5.9</httpcomponents.version>
-    <jacoco.version>0.8.3</jacoco.version>
+    <elasticsearch.version>7.13.1</elasticsearch.version>
+    <httpcomponents.version>4.5.13</httpcomponents.version>
+    <jacoco.version>0.8.6</jacoco.version>
+    <jackson.version>2.12.3</jackson.version>
     <java.version>11</java.version>
-    <junit-jupiter.version>5.5.0</junit-jupiter.version>
-    <karate.version>0.9.4</karate.version>
+    <junit-jupiter.version>5.7.2</junit-jupiter.version>
+    <karate.version>0.9.6</karate.version>
     <logback.version>1.2.3</logback.version>
-    <log4j2.version>2.12.0</log4j2.version>
+    <log4j2.version>2.14.1</log4j2.version>
     <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
-    <maven-failsafe-plugin.version>3.0.0-M3</maven-failsafe-plugin.version>
-    <maven-surefire-plugin.version>3.0.0-M3</maven-surefire-plugin.version>
+    <maven-failsafe-plugin.version>3.0.0-M5</maven-failsafe-plugin.version>
+    <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
     <mockito.version>2.28.2</mockito.version>
-    <pitest-maven.version>1.4.7</pitest-maven.version>
-    <pitest-junit5-plugin.version>0.8</pitest-junit5-plugin.version>
-    <slf4j.version>1.7.26</slf4j.version>
-    <testcontainers.version>1.11.4</testcontainers.version>
-    <vertx.version>3.7.1</vertx.version>
+    <pitest-maven.version>1.5.2</pitest-maven.version>
+    <pitest-junit5-plugin.version>0.14</pitest-junit5-plugin.version>
+    <slf4j.version>1.7.30</slf4j.version>
+    <testcontainers.version>1.15.3</testcontainers.version>
+    <vertx.version>4.1.0</vertx.version>
 
     <!--
     Other properties
@@ -151,6 +152,11 @@
           <artifactId>commons-logging</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
     </dependency>
 
     <dependency>
