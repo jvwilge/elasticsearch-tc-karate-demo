@@ -17,7 +17,7 @@
     <elasticsearch.version>7.13.1</elasticsearch.version>
     <httpcomponents.version>4.5.13</httpcomponents.version>
     <jacoco.version>0.8.6</jacoco.version>
-    <jackson.version>2.12.3</jackson.version>
+    <jackson.version>2.13.4.1</jackson.version>
     <java.version>11</java.version>
     <junit-jupiter.version>5.7.2</junit-jupiter.version>
     <karate.version>0.9.6</karate.version>
