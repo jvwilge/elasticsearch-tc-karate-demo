@@ -31,7 +31,7 @@
     <pitest-junit5-plugin.version>0.14</pitest-junit5-plugin.version>
     <slf4j.version>1.7.30</slf4j.version>
     <testcontainers.version>1.15.3</testcontainers.version>
-    <vertx.version>4.1.0</vertx.version>
+    <vertx.version>4.3.8</vertx.version>
 
     <!--
     Other properties
